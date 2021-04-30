@@ -6,7 +6,7 @@ class Balloon {
         this.r = random(70, 150);
         this.pos = createVector(random(width), height + random(100, 500));
         this.lineSize = random(150, 200);
-        this.stepUp = 5;
+        this.stepUp = 7;
     }
 
     show() {
@@ -31,6 +31,16 @@ class Balloon {
     checkEdge() {
         if (this.pos.y < this.r / 2) {
             this.pos.y = this.r / 2;
+        }
+    }
+
+    mouseHover() {
+        if (this.pos.x + this.r / 2 > mouseX && this.pos.x - this.r / 2 < mouseX) {
+            if (this.pos.y + this.r / 2 > mouseY && this.pos.y - this.r / 2 < mouseY) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 }
