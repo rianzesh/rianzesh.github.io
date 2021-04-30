@@ -7,8 +7,8 @@ function preload() {
     bg = loadImage("assets/img/jakarta.png");
     soundFx = loadSound("assets/sfx/pop.mp3");
     bgsound = loadSound("assets/music/bgsound.mp3");
-    bgsound.play9
-;}
+    // bgsound
+}
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -27,7 +27,7 @@ function draw() {
         balloons[x].checkEdge();
         if (balloons[x].mouseHover()) {
             balloons.splice(x, 1);
-            soundFx.play();
+            bgsound.play();
         }
     }
 
