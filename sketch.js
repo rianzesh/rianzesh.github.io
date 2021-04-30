@@ -1,13 +1,10 @@
 var bg, foto;
 var balloons = [];
 var soundFx;
-var bgsound;
 
 function preload() {
     bg = loadImage("assets/img/jakarta.png");
     soundFx = loadSound("assets/sfx/pop.mp3");
-    bgsound = loadSound("assets/music/bgsound.mp3");
-    // bgsound
 }
 
 function setup() {
@@ -27,7 +24,7 @@ function draw() {
         balloons[x].checkEdge();
         if (balloons[x].mouseHover()) {
             balloons.splice(x, 1);
-            bgsound.play();
+            soundFx.play();
         }
     }
 
