@@ -1,11 +1,14 @@
 var bg, foto;
 var balloons = [];
 var soundFx;
+var bgsound;
 
 function preload() {
     bg = loadImage("assets/img/jakarta.png");
     soundFx = loadSound("assets/sfx/pop.mp3");
-}
+    bgsound = loadSound("assets/music/bgsound.mp3");
+    bgsound.play9
+;}
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
