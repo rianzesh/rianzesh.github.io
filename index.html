@@ -6,10 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#staticBackdrop').modal('show');
+        });
+    </script>
+
     <style>
         body {
-            background-image: url('assets/img/bg1.jpg');
-            background-size: cover;
+            /* background-image: url('assets/img/bg1.jpg'); */
+            /* background-size: cover; */
             margin: 0;
             padding: 0;
             overflow: hidden;
@@ -29,13 +39,36 @@
   />
 </head>
 <body>
+
+      <!-- Modal -->
+  <div class="modal show fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="background-color: white;">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color: transparent; margin-top: 250px; border: none;">
+        <div class="modal-body">
+            <center>
+                <form>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Nama</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                </form>
+                <button class="btn btn-primary" id="playButton" onclick="playAudio()" data-bs-dismiss="modal">Mulai</button> 
+                <!-- <button id="playButton"onclick="pauseAudio()">pause</button>  -->
+            </center>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div id="bodies" style="opacity: 0;">
     
+
     <audio id="audio">
         <source src="assets/music/bgsound.mp3" type="audio/mpeg">
     </audio>
 
     <center>
-    <div  style="position: fixed; width: 100%;">
+    <div  style="position: fixed; width: 100%; z-index: 0;">
         <div class="row mt-5">
                 <div class="col-12 mt-5 pt-5">
                     <div class="col-5">
@@ -48,41 +81,18 @@
         </div>
     </center>
 
-
-
-  <!-- Modal -->
-  <div class="modal show fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content" style="background-color: transparent; margin-top: 250px;">
-        <div class="modal-body">
-            <center>
-                <button id="playButton" onclick="playAudio()" data-bs-dismiss="modal">play</button> 
-                <!-- <button id="playButton"onclick="pauseAudio()">pause</button>  -->
-            </center>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
-
-    <script type="text/javascript">
-        $(window).on('load', function() {
-            $('#staticBackdrop').modal('show');
-        });
-    </script>
+    
+</div>
 
 
     <script>
         var startAll = false;
         var audio = document.getElementById('audio');
+        var bodies = document.getElementById('bodies');
         function playAudio() {
-            audio.play();
             startAll = true;
+            audio.play();
+            document.getElementById("bodies").setAttribute("style", "opacity : 1;");
         }
         function pauseAudio() {
             audio.pause();

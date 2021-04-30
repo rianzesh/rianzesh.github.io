@@ -3,7 +3,7 @@ var balloons = [];
 var soundFx;
 
 function preload() {
-    //  = loadImage("assets/img/jakarta.png");
+    bg = loadImage("assets/img/bg1.jpg");
     soundFx = loadSound("assets/sfx/pop.mp3");
 }
 
@@ -16,7 +16,7 @@ function setup() {
 }
 
 function draw() {
-    // background(bg,0,0);
+    background(bg,0,0);
     if (startAll === true) {
         
         for (let x = 0; x < balloons.length; x++) {
