@@ -28,7 +28,23 @@
     <!-- <div style="position: absolute;">
         <embed src="assets/music/bgsound.mp3" loop="true" autostart="true" width="1" height="0" style="visibility: hidden;">
     </div> -->
-    <audio src="assets/music/bgsound.mp3" autoplay></audio>
+    <audio id="audio">
+        <source src="assets/music/bgsound.mp3" type="audio/mpeg">
+    </audio>
 
+    <button id="playButton" onclick="playAudio()">play</button> 
+    <button id="playButton"onclick="pauseAudio()">pause</button> 
+
+
+    <script>
+        var audio = document.getElementById('audio');
+        function playAudio() {
+            audio.play();
+        }
+        function pauseAudio() {
+            audio.pause();
+        }
+    </script>
+    
 </body>
 </html>
